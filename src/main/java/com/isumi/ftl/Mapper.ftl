@@ -27,7 +27,7 @@
 		and ${entity.relativeTable.simpleName}.ID = ${r'#'}{id,jdbcType=VARCHAR}
 	</select>
 	
-	<select id="select" parameterType="java.util.Map" resultMap="BaseResultMap">
+	<select id="selectByParameter" parameterType="java.util.Map" resultMap="BaseResultMap">
 		select <include refid="Base_Column_List" />
 		from ${entity.relativeTable.name} ${entity.relativeTable.simpleName}
 		where ${entity.relativeTable.simpleName}.IS_DELETED = 'N'
