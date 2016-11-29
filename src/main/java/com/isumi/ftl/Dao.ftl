@@ -17,21 +17,21 @@ public class ${entity.name}Dao extends MybatisDao implements I${entity.name}Dao 
 	}
 
 	@Override
-	public int insert${entity.name}(${entity.name} ${entity.name?cap_first}) {
-		${entity.name?cap_first}.setDefaultValue();
-		return super.insert(${entity.name?cap_first});
+	public int insert${entity.name}(${entity.name} ${entity.name?uncap_first}) {
+		${entity.name?uncap_first}.setDefaultValue();
+		return super.insert(${entity.name?uncap_first});
 	}
 
 	@Override
-	public int update${entity.name}(${entity.name} ${entity.name?cap_first}) {
-		${entity.name?cap_first}.setUpdateValue();
-		return super.update(${entity.name?cap_first});
+	public int update${entity.name}(${entity.name} ${entity.name?uncap_first}) {
+		${entity.name?uncap_first}.setUpdateValue();
+		return super.update(${entity.name?uncap_first});
 	}
 
 	@Override
-	public int delete${entity.name}ByLogic(${entity.name} ${entity.name?cap_first}) {
-		${entity.name?cap_first}.setUpdateValue();
-		return super.deleteByLogic(${entity.name?cap_first});
+	public int delete${entity.name}ByLogic(${entity.name} ${entity.name?uncap_first}) {
+		${entity.name?uncap_first}.setUpdateValue();
+		return super.deleteByLogic(${entity.name?uncap_first});
 	}
 
 	@Override
