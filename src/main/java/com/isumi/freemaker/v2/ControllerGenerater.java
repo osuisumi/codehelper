@@ -14,22 +14,22 @@ import com.isumi.freemaker.TemplateFactory;
 
 import freemarker.template.Template;
 
-public class XmlMapperGenerater {
+public class ControllerGenerater {
 	
-	public static XmlMapperGenerater instance = new XmlMapperGenerater();
+	public static ControllerGenerater instance = new ControllerGenerater();
 
-	private XmlMapperGenerater() {
+	private ControllerGenerater() {
 	}
 
 	public void generate(List<Entity> entitys) {
-		Template entityTemplate = TemplateFactory.getTemplatev2("XmlMapper.ftl");
+		Template entityTemplate = TemplateFactory.getTemplatev2("Controller.ftl");
 		for (Entity entity : entitys) {
 			try {
-				File entityFolder = new File(EntityFactory.getResourceRootPath()+"/mybatis/mapper");
+				File entityFolder = new File(EntityFactory.getRootPath()+"/controller");
 				if(!entityFolder.exists()){
 					entityFolder.mkdirs();
 				}
-				FileOutputStream fos = new FileOutputStream(new File(EntityFactory.getResourceRootPath()+"/mybatis/mapper/"+entity.getName()+"Mapper.xml"));// java文件的生成目录
+				FileOutputStream fos = new FileOutputStream(new File(EntityFactory.getRootPath()+"/controller/"+entity.getName()+"Controller.java"));// java文件的生成目录
 				Map data = new HashMap();
 				data.put("entity", entity);
 				entityTemplate.process(data, new OutputStreamWriter(fos, "utf-8"));

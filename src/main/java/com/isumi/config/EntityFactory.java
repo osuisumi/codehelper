@@ -30,7 +30,17 @@ public class EntityFactory {
 			basePath.mkdirs();
 		}
 		return result;
-		
+	}
+	
+	public static String getResourceRootPath(){
+		String classLoaderPath = instance.getClass().getClassLoader().getResource("applicationContext.xml").getPath();
+		String result = classLoaderPath.replaceAll("target.+$", "");
+		result = result + "/src/main/resources";
+		File resourceRoot = new File(result);
+		if(!resourceRoot.exists()){
+			resourceRoot.mkdirs();
+		}
+		return result;
 	}
 	
 	private static List<Entity> getEntity(List<Table> tables){
