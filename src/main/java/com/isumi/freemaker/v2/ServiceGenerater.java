@@ -21,7 +21,7 @@ public class ServiceGenerater {
 	}
 
 	public void generateInterface(List<Entity> entitys) {
-		Template entityTemplate = TemplateFactory.getTemplate("IService.ftl");
+		Template entityTemplate = TemplateFactory.getTemplatev2("IService.ftl");
 		for (Entity entity : entitys) {
 			try {
 				File IServiceFolder = new File(EntityFactory.getRootPath() + "/service");
@@ -41,7 +41,7 @@ public class ServiceGenerater {
 	}
 
 	public void generate(List<Entity> entitys) {
-		Template entityTemplate = TemplateFactory.getTemplate("Service.ftl");
+		Template entityTemplate = TemplateFactory.getTemplatev2("Service.ftl");
 		for (Entity entity : entitys) {
 			try {
 				File ServiceFolder = new File(EntityFactory.getRootPath() + "/service/impl");

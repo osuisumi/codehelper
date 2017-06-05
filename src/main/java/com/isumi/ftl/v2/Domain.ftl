@@ -15,7 +15,7 @@ import ${ip};
 
 
 @ApiModel(value = "${entity.name}", description = "")
-public class ${entity.name} extends BaseEntity<String> implements Comparable<${entity.name}>, Serializable {
+public class ${entity.name} extends BaseEntity<String> implements Serializable {
 	@Transient
 	private static final long serialVersionUID = 1L;
 	
