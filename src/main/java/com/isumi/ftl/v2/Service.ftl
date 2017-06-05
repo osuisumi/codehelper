@@ -2,7 +2,7 @@ package ${entity.basePackage}.service.impl;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
-import ${entity.basePackage}.entity.${entity.name};
+import ${entity.basePackage}.domain.${entity.name};
 import ${entity.basePackage}.service.I${entity.name}Service;
 import com.haoyu.sip.service.BaseService;
 
