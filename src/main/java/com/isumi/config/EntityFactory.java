@@ -43,6 +43,17 @@ public class EntityFactory {
 		return result;
 	}
 	
+	public static String getDockerFileRootPath(){
+		String classLoaderPath = instance.getClass().getClassLoader().getResource("applicationContext.xml").getPath();
+		String result = classLoaderPath.replaceAll("target.+$", "");
+		result = result + "/src/main/docker";
+		File dockerFileRoot = new File(result);
+		if(!dockerFileRoot.exists()){
+			dockerFileRoot.mkdirs();
+		}
+		return result;
+	}
+	
 	private static List<Entity> getEntity(List<Table> tables){
 		List<Entity> result = new ArrayList<Entity>();
 		for(Table tb:tables){
