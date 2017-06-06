@@ -20,35 +20,35 @@ import com.isumi.entity.Table.Column;
 public class TableFactory {
 	
 	
-	private List<String> tableNames = new ArrayList<String>();
+	public List<String> tableNames = new ArrayList<String>();
 	
 	public static TableFactory instance = new TableFactory();
 	
-	private String basePackage;
+	public String basePackage;
 	
 	public String getBasePackage(){
 		return this.basePackage;
 	}
 	
 	private TableFactory(){
-		File f = new File(this.getClass().getClassLoader().getResource("table.property").getFile());
-		FileInputStream fis;
-		try {
-			fis = new FileInputStream(f);
-		} catch (FileNotFoundException e) {
-			throw new RuntimeException(e.getMessage());
-		}
-		Properties properties = new Properties();
-		try {
-			properties.load(fis);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			throw new RuntimeException(e.getMessage());
-		}
-		
-		String [] tables = properties.getProperty("table").split(",");
-		tableNames.addAll(Arrays.asList(tables));
-		this.basePackage = properties.getProperty("basePackage");
+//		File f = new File(this.getClass().getClassLoader().getResource("table.property").getFile());
+//		FileInputStream fis;
+//		try {
+//			fis = new FileInputStream(f);
+//		} catch (FileNotFoundException e) {
+//			throw new RuntimeException(e.getMessage());
+//		}
+//		Properties properties = new Properties();
+//		try {
+//			properties.load(fis);
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			throw new RuntimeException(e.getMessage());
+//		}
+//		
+//		String [] tables = properties.getProperty("table").split(",");
+//		tableNames.addAll(Arrays.asList(tables));
+//		this.basePackage = properties.getProperty("basePackage");
 	}
 	
 	public List<Table> getTables(Connection connection) throws SQLException{

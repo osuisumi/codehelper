@@ -19,10 +19,13 @@ public class EntityFactory {
 	
 	public static EntityFactory instance = new EntityFactory();
 	
+	public static JDBCConnectionConfig jdbcConnectionConfig = null;
+	
 	private EntityFactory(){}
 	
 	public static String getRootPath(){
-		String classLoaderPath = instance.getClass().getClassLoader().getResource("applicationContext.xml").getPath();
+//		String classLoaderPath = instance.getClass().getClassLoader().getResource("EntityFactory.class").getPath();
+		String classLoaderPath =System.getProperty("user.dir");
 		String result = classLoaderPath.replaceAll("target.+$", "");
 		result = result + "/src/main/java/" +TableFactory.instance.getBasePackage().replaceAll("\\.", "/") ;
 		File basePath = new File(result);
@@ -33,7 +36,8 @@ public class EntityFactory {
 	}
 	
 	public static String getResourceRootPath(){
-		String classLoaderPath = instance.getClass().getClassLoader().getResource("applicationContext.xml").getPath();
+//		String classLoaderPath = instance.getClass().getClassLoader().getResource("EntityFactory.class").getPath();
+		String classLoaderPath =System.getProperty("user.dir");
 		String result = classLoaderPath.replaceAll("target.+$", "");
 		result = result + "/src/main/resources";
 		File resourceRoot = new File(result);
@@ -44,7 +48,8 @@ public class EntityFactory {
 	}
 	
 	public static String getDockerFileRootPath(){
-		String classLoaderPath = instance.getClass().getClassLoader().getResource("applicationContext.xml").getPath();
+//		String classLoaderPath = instance.getClass().getClassLoader().getResource("EntityFactory.class").getPath();
+		String classLoaderPath =System.getProperty("user.dir");
 		String result = classLoaderPath.replaceAll("target.+$", "");
 		result = result + "/src/main/docker";
 		File dockerFileRoot = new File(result);
@@ -82,7 +87,7 @@ public class EntityFactory {
 	
 	public static List<Entity> getEntity(){
 		try {
-			return instance.getEntity(TableFactory.instance.getTables(ConnectionFactory.getInstance().getConnection(JDBCConnectionConfig.getDefaultInstance())));
+			return instance.getEntity(TableFactory.instance.getTables(ConnectionFactory.getInstance().getConnection(jdbcConnectionConfig)));
 		} catch (SQLException e) {
 			throw new RuntimeException(e.getMessage());
 		}
