@@ -12,7 +12,9 @@ import com.isumi.freemaker.v2.DomainGenerater;
 import com.isumi.freemaker.v2.MapperGenerater;
 import com.isumi.freemaker.v2.ServiceGenerater;
 import com.isumi.freemaker.v2.SwaggerGenerater;
+import com.isumi.freemaker.v2.XmlLog4jGenerater;
 import com.isumi.freemaker.v2.XmlMapperGenerater;
+import com.isumi.freemaker.v2.XmlPomGenerater;
 import com.isumi.freemaker.v2.YmlApplicationGenerater;
 
 public class GenerateV2 {
@@ -33,6 +35,8 @@ public class GenerateV2 {
 		DockerFileGenerater.instance.generate();
 		SwaggerGenerater.instance.generate();
 		YmlApplicationGenerater.instance.generate();
+		XmlLog4jGenerater.instance.generate();
+		XmlPomGenerater.instance.generate();
 	}
 
 }

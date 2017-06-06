@@ -59,6 +59,12 @@ public class EntityFactory {
 		return result;
 	}
 	
+	public static String getProjectRootPath(){
+		String classLoaderPath =System.getProperty("user.dir");
+		String result = classLoaderPath.replaceAll("target.+$", "");
+		return result;
+	}
+	
 	private static List<Entity> getEntity(List<Table> tables){
 		List<Entity> result = new ArrayList<Entity>();
 		for(Table tb:tables){
